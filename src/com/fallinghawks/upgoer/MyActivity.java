@@ -3,7 +3,6 @@ package com.fallinghawks.upgoer;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.text.Editable;
@@ -53,7 +52,7 @@ public class MyActivity extends Activity {
                         if (startWord != -1) {
                             String word = s.subSequence(startWord,i).toString();
                             if (!inDictionary(word)) {
-                                // wrap in a span of a different color or sumpin'
+                                // wrap in a span of red color
                                 if (s.getSpans(startWord,i,ForegroundColorSpan.class).length == 0) {
                                     s.setSpan(new ForegroundColorSpan(Color.RED),startWord,i,0);
                                 }
@@ -76,12 +75,9 @@ public class MyActivity extends Activity {
             @Override
             public void onClick(View v) {
                 String shareText = saveText();
-                File root = android.os.Environment.getExternalStorageDirectory();
-                Uri fileUri = Uri.fromFile(new File(root.getAbsolutePath() + "/upgoer/tenhundred.txt"));
                 Intent share = new Intent(Intent.ACTION_SEND);
                 share.setType("text/plain");
-                share.putExtra(Intent.EXTRA_STREAM, fileUri);
-                share.putExtra(Intent.EXTRA_TEXT, shareText);
+                share.putExtra(Intent.EXTRA_TEXT, shareText+" #upgoerfive");
                 startActivity(Intent.createChooser(share, "Share Image"));
             }
         });
