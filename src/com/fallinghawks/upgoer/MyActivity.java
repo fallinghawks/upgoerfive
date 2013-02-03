@@ -9,11 +9,11 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.MultiAutoCompleteTextView;
-import android.widget.TextView;
+import android.widget.*;
 
 import java.io.*;
 
@@ -41,30 +41,34 @@ public class MyActivity extends Activity {
 
             @Override
             public void afterTextChanged(Editable s) {
+                ForegroundColorSpan[] spans = s.getSpans(0, s.length(), ForegroundColorSpan.class);
+                for (ForegroundColorSpan span : spans) {
+                    s.removeSpan(span);
+                }
+
                 int startWord = -1;
                 for (int i = 0; i < s.length(); i++ ) {
                     char c = s.charAt(i);
-                    if (Character.isLetter(c)) {
-                        if (startWord == -1) {
-                            startWord = i;
-                        }
-                    } else {
-                        if (startWord != -1) {
-                            String word = s.subSequence(startWord,i).toString();
-                            if (!inDictionary(word)) {
-                                // wrap in a span of red color
-                                if (s.getSpans(startWord,i,ForegroundColorSpan.class).length == 0) {
-                                    s.setSpan(new ForegroundColorSpan(Color.RED),startWord,i,0);
-                                }
-                            } else {
-                                ForegroundColorSpan[] currSpan = s.getSpans(startWord, i, ForegroundColorSpan.class);
-                                for (ForegroundColorSpan aCurrSpan : currSpan) {
-                                    s.removeSpan(aCurrSpan);
-                                }
-                            }
-                            startWord = -1;
-                        }
+                    boolean isWordLetter = Character.isLetter(c) || c == '\'';
+                    if (isWordLetter && startWord == -1) {
+                        // found the start of word
+                        startWord = i;
+                    } else if (startWord != -1 && !isWordLetter) {
+                        // found end of word
+                        updateWord(s, startWord, i);
+                        startWord = -1;
                     }
+                }
+                if (startWord != -1) {
+                    // found the end of a word at the end of the text
+                    updateWord(s, startWord, s.length());
+                }
+            }
+
+            private void updateWord(Editable s, int startWord, int endWord) {
+                String word = s.subSequence(startWord, endWord).toString();
+                if (!inDictionary(word)) {
+                    s.setSpan(new ForegroundColorSpan(Color.RED), startWord, endWord, 0);
                 }
             }
         });
@@ -124,7 +128,7 @@ public class MyActivity extends Activity {
         String thText =  textView.getText().toString();
         File root = Environment.getExternalStorageDirectory();
         File filepath = new File (root.getAbsolutePath() + "/upgoer");
-        if (!filepath.mkdirs()) {
+        if (!filepath.isDirectory() && !filepath.mkdirs()) {
             Log.e("Upgoer","can't save file");
             return thText ;
         }
@@ -137,10 +141,41 @@ public class MyActivity extends Activity {
             writer.close();
             fileOutputStream.close();
         } catch(Exception e){
-            e.printStackTrace(System.err);
+            Log.e("upgoer", "can't save!", e);
         }
         return thText;
     }
+    @Override
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu, menu);
+
+        // Calling super after populating the menu is necessary here to ensure that the
+        // action bar helpers have a chance to handle this event.
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.share:
+                String shareText = saveText();
+                Intent share = new Intent(Intent.ACTION_SEND);
+                share.setType("text/plain");
+                share.putExtra(Intent.EXTRA_TEXT, shareText+" #upgoerfive");
+                startActivity(Intent.createChooser(share, "Share Image"));
+                break;
+            case R.id.about:
+                Intent intent = new Intent(this, About.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 
     @Override
     protected void onDestroy() {
