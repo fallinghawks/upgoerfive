@@ -25,7 +25,6 @@ afraid
 after
 afternoon
 afternoons
-afters
 again
 against
 age
@@ -122,8 +121,8 @@ asleep
 ass
 asses
 at
-ate
 ats
+ate
 attack
 attacked
 attacking
@@ -141,9 +140,7 @@ avoided
 avoiding
 avoids
 away
-aways
 babied
-babier
 babies
 baby
 babying
@@ -210,7 +207,6 @@ bell
 belled
 belling
 bells
-bes
 beside
 besides
 best
@@ -323,7 +319,6 @@ burned
 burning
 burns
 burst
-bursted
 bursting
 bursts
 bus
@@ -400,7 +395,6 @@ cheeks
 chest
 chests
 child
-childed
 children
 chuckle
 chuckled
@@ -636,7 +630,6 @@ drove
 drunk
 dry
 drying
-drys
 during
 dying
 each
@@ -862,8 +855,6 @@ fucked
 fucking
 fucks
 full
-fulled
-fulling
 fulls
 fun
 funny
@@ -896,7 +887,6 @@ given
 gives
 giving
 glad
-glads
 glance
 glanced
 glances
@@ -1055,7 +1045,6 @@ hiding
 high
 highs
 him
-hims
 himself
 his
 hit
@@ -1105,12 +1094,12 @@ hurrying
 hurt
 hurting
 hurts
-i
+I
 ice
 iced
 ices
 icing
-i'd
+I'd
 idea
 ideas
 if
@@ -1119,8 +1108,8 @@ ignore
 ignored
 ignores
 ignoring
-i'll
-i'm
+I'll
+I'm
 imagine
 imagined
 imagines
@@ -1146,7 +1135,7 @@ is
 isn't
 it
 its
-i've
+I've
 jacket
 jackets
 jeans
@@ -1377,7 +1366,6 @@ met
 middle
 middles
 might
-mights
 mind
 minded
 minding
@@ -1427,11 +1415,9 @@ moves
 movie
 movies
 moving
-mr
-mr.
-mrs
-mrs.
-ms
+Mr
+Mrs
+Ms
 much
 mum
 mumble
@@ -1440,8 +1426,6 @@ mumbles
 mumbling
 mums
 music
-musicked
-musicking
 musics
 must
 musts
@@ -1450,9 +1434,7 @@ muttered
 muttering
 mutters
 my
-mys
 myself
-myselves
 name
 named
 names
@@ -1473,8 +1455,6 @@ needs
 nervous
 never
 new
-newed
-newing
 news
 next
 nice
@@ -1616,7 +1596,6 @@ paused
 pauses
 pausing
 pay
-payed
 paying
 pays
 people
@@ -1768,7 +1747,7 @@ reached
 reaches
 reaching
 read
-readding
+reading
 readied
 readies
 reading
@@ -1885,7 +1864,6 @@ safer
 safes
 said
 same
-sames
 sat
 save
 saved
@@ -1894,7 +1872,6 @@ saving
 saw
 sawed
 sawing
-sawn
 saws
 say
 sayer
@@ -2033,11 +2010,8 @@ shrugged
 shrugging
 shrugs
 shut
-shuting
 shuts
 shutting
-si
-sices
 sick
 sicked
 sicking
@@ -2074,7 +2048,6 @@ singles
 sir
 sirs
 sister
-sistering
 sisters
 sit
 siting
@@ -2112,8 +2085,6 @@ slowing
 slowly
 slows
 small
-smalled
-smalling
 smalls
 smell
 smelled
@@ -2160,7 +2131,6 @@ sort
 sorted
 sorting
 sorts
-sos
 sound
 sounded
 sounding
@@ -2170,7 +2140,6 @@ spaced
 spacer
 spaces
 spacing
-spake
 speak
 speaking
 speaks
@@ -2243,8 +2212,6 @@ stories
 storing
 story
 straight
-straighted
-straighting
 straights
 strange
 street
@@ -2354,7 +2321,6 @@ think
 thinking
 thinks
 third
-thirding
 thirds
 this
 those
@@ -2372,7 +2338,6 @@ thrown
 throws
 tie
 tied
-tieing
 ties
 tight
 tights
@@ -2471,9 +2436,7 @@ typed
 types
 typing
 uncle
-uncled
 uncles
-uncling
 under
 understand
 understanding
@@ -2527,7 +2490,6 @@ warning
 warns
 was
 wasn't
-wast
 watch
 watched
 watches
@@ -2608,9 +2570,7 @@ wishing
 with
 withed
 within
-withing
 without
-withs
 wives
 woke
 woken
