@@ -13,10 +13,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
-import android.widget.MultiAutoCompleteTextView;
-import android.widget.TextView;
+import android.widget.*;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -117,8 +114,9 @@ public class MyActivity extends Activity {
             file.close();
             String readString = stringBuffer.toString();
             if (readString != null) {
-                TextView mainText = (TextView) findViewById(R.id.autocomplete);
+                EditText mainText = (EditText) findViewById(R.id.autocomplete);
                 mainText.setText(readString);
+                mainText.setSelection(mainText.getText().length());
             }
         } catch (FileNotFoundException e) {
             // this happens the first time the app is launched
