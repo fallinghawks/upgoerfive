@@ -22,7 +22,8 @@ public class About extends Activity {
                 "contemporary fiction (according to Wiktionary), and <a href=\"http://splasho.com/upgoer5/\">Splasho's " +
                 "online text editor</a> also inspired by the comic.]<p>This editor has a selection dropdown for the " +
                 "thousand most commonly used words and their various forms (full list kindly provided by Theo " +
-                "Sanderson/Splasho), and highlights in red any words not in the list.</p><p>2013 Andrea Chen</p>"));
+                "Sanderson/Splasho), and highlights in red any words not in the list.</p><p>2013 Andrea Chen</p>" +
+                "<p>Background graphic composited from xkcd.com #1167 amd #1121.</p>"));
         textView.setMovementMethod(LinkMovementMethod.getInstance());
     }
 }

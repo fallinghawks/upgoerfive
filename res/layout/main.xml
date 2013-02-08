@@ -32,7 +32,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Share"
+            android:textColor="@android:color/darker_gray"
+            android:text="SHARE"
             />
     <TextView
             android:layout_width="wrap_content"
