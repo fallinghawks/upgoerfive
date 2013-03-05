@@ -24,12 +24,16 @@ import android.widget.TextView;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MyActivity extends Activity {
 
     private final Handler handler = new Handler();
     private String[] dictionary;
     private MultiAutoCompleteTextView editBox;
+    final String regex1 = "[/.,\\?!:;']";
+    Pattern punctuation = Pattern.compile(regex1);
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,6 +64,14 @@ public class MyActivity extends Activity {
 
             @Override
             public void afterTextChanged(Editable s) {
+                String lastTwo = s.subSequence(s.length()-2, s.length()).toString();
+                Matcher matcher = punctuation.matcher(lastTwo);
+                if (lastTwo.charAt(0) == ' ' &&  matcher.find()) {
+                    s.delete(s.length()-2,s.length()-1);
+                    s.append(" ");
+                }
+
+                // mark nonmatching words in red
                 ForegroundColorSpan[] spans = s.getSpans(0, s.length(), ForegroundColorSpan.class);
                 for (ForegroundColorSpan span : spans) {
                     s.removeSpan(span);
