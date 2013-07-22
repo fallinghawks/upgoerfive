@@ -64,10 +64,16 @@ public class MyActivity extends Activity {
 
             @Override
             public void afterTextChanged(Editable s) {
+                if (s.length() <=2 ) {
+                    return;
+                }
+                // search for a space before a punctuation mark in the last 2 chars of the text
                 String lastTwo = s.subSequence(s.length()-2, s.length()).toString();
                 Matcher matcher = punctuation.matcher(lastTwo);
                 if (lastTwo.charAt(0) == ' ' &&  matcher.find()) {
+                    // delete the space
                     s.delete(s.length()-2,s.length()-1);
+                    // add a space at the end
                     s.append(" ");
                 }
 
